@@ -62,6 +62,7 @@
     });
  });
 
+
  document.addEventListener("DOMContentLoaded", function() {
     var nav = document.getElementById("navbar-list");
     var nightMode = document.getElementById("toggle");

@@ -29,10 +29,11 @@
                     <h2>I AM A FULLSTACK <br> WEB DEVELOPER</h2>
                 </div>
             </div>
-            <div class="description container text-center" style="width: 44%; color: var(--text-grey-color)">
-                <p class="descrizione">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam temporibus fugit
-                    porro voluptatum doloribus reprehenderit omnis ad vitae a at cum nulla culpa aut dignissimos,
-                    repellat animi eligendi unde similique. </p>
+            <div class="description container text-center" style="width: 44%; color: var(--text-grey-color)" id="Leggi">
+                <p class="descrizione truncated">Ciao a tutti! <br> Sono Fabiano Buscemi, un giovane appassionato di 20 anni con un'anima creativa dedicata alla programmazione. <!--Il mio viaggio nel mondo dello sviluppo software è iniziato due anni fa, quando ho abbracciato la sfida dell'autodidattismo. Da allora, ho dedicato il mio tempo a esplorare e approfondire le intricatissime strade del coding, e oggi sto affrontando con determinazione il vasto territorio del back-end.
+                    Il mio portfolio è il risultato tangibile di questo percorso appassionato. Qui potrete immergervi nelle mie creazioni e progetti, scoprendo la mia crescita e le competenze che continuo a perfezionare. Attraverso il mio sito, desidero condividere non solo il mio lavoro, ma anche la mia passione per la programmazione.
+                    Sono entusiasta di invitarvi a esplorare il mio mondo digitale e vedere come ho trasformato il mio amore per il coding in progetti tangibili. <br> Nel caso abbiate domande, proposte o vogliate semplicemente condividere la vostra passione per la programmazione, non esitate a contattarmi tramite la sezione "Contatti". <br>Grazie per essere qui e buona navigazione nel mio universo digitale! --> </p>
+
                 <div class="icons-social d-flex justify-content-center align-items-center">
                     <a href="https://github.com/woweya" target="_blank"><img src="{{ asset('immagini/github.png') }}"
                             alt=""></a>
@@ -233,7 +234,7 @@
                                 @enderror
                             </div>
                             <div class="form-group" style="width: 35%">
-                                <label for="nome" class="text-white">Name:</label>
+                                <label for="nome" class="text-white" id="myName">Name:</label>
                                 <input type="nome" class="form-control" id="nome"
                                     placeholder="Insert your name.." name="nome">
                                 @error('nome')
