@@ -214,7 +214,11 @@
             <p class="description" data-aos="zoom-in" data-aos-duration="1000">Talking about buisness, feel free to
                 contact me!</p>
             <div class="form text-center  d-flex justify-content-center align-items-center">
+                <div class="skills-bg w-100" id="bg-mobile">
+                    <img src="{{ asset('immagini/bg-mobile.png') }}" alt="">
+                </div>
                 <form class="w-50 text-center" action="{{ route('sendEmail') }} " method="POST">
+
                     @csrf
                     <x-status-email />
                     <div class="form-row">

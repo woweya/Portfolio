@@ -7,6 +7,7 @@
     --text-grey-color: #908e8e;
     --bs-body-bg: #1E1E1E;
     --text-normal: white;
+    --text-black: black;
     --text-important: #EC2637;
     --card-body-bg: #111111;
     --bs-bg-whitemode: #cbcfcd;
@@ -18,23 +19,28 @@
     font-family: "Jockey One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    scroll-behavior: smooth;
 }
+
 body{
     background-color: var(--bs-bg-whitemode);
     overflow-x: hidden;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+html{
+    scroll-behavior: smooth;
+
 }
 
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
-    color: #908e8e;
-}
+
 .navbar-nav a{
-    color: #908e8e;
+    color: var(--text-black);
 }
 
 .navbar{
-
+    -webkit-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -70,6 +76,9 @@ body{
   #sun,
   #moon,
   #cloud {
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition-duration: 0.25s;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 0.25s;
@@ -82,6 +91,7 @@ body{
 
   /* move button to right when checked */
   #toggle:checked + svg #button {
+    -webkit-transform: translate(28px, 2.333px);
     transform: translate(28px, 2.333px);
   }
 
@@ -126,14 +136,14 @@ body{
   }
   .intro h1{
     width: 100%;
-    color: var(--text-important);
+    color: var(--text-black);
     font-size: 18em;
     margin-right: 20px;
   }
 .overlay{
     position: absolute;
     top: 233px;
-    right: 100px;
+    right: 11px;
     height: 50px;
     bottom: 0;
     width: 60px; /* Larghezza del quadrato */
@@ -142,13 +152,13 @@ body{
 .web-ux {
     position: absolute;
     top: 233px;
-    right: 86px;
+    right: 3px;
     height: 50px;
     line-height: 1.3em;
     bottom: 0;
     width: 60px;
     font-size: 20px; /* Dimensione del testo */
-    color: var(--text-important);
+    color: var(--text-black);
   }
   .circle{
     background-image: url("/public/immagini/me-face.jpeg");
@@ -162,7 +172,7 @@ body{
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    border: 3px solid var(--text-important);
+    border: 3px solid var(--text-black);
   }
 
   .descrizione{
@@ -216,6 +226,9 @@ body{
     margin-top: 8em;
     display: flex;
     flex-direction: column;
+  }
+  #back-end{
+    color: var(--text-black)!important;
   }
   .skills p{
     color: var(--text-grey-color);
@@ -369,10 +382,16 @@ background: linear-gradient(90deg, rgba(3,0,8,1) 0%, rgba(106,34,40,1) 10%, rgba
     margin-right: 0!important;
     width: 50%;
   }
+  .project h1{
+    color: var(--text-black);
+    margin-bottom: 0.5em;
+  }
   .project .description{
     color: var(--text-grey-color);
     font-size: 1.3em;
     width: 50%;
+    margin-top: 0px;
+    padding-bottom:40px;
   }
 
   .card-body{
@@ -433,10 +452,16 @@ background: linear-gradient(90deg, rgba(3,0,8,1) 0%, rgba(106,34,40,1) 10%, rgba
 
   }
   .contact-info .description{
-    color: var(--text-grey-color);
+    color: var(--text-black);
     font-size: 1.3em;
 
   }
+
+
+  .contact-info h1{
+    color: var(--text-black);
+  }
+
 
   .form-group{
     margin-top: 2em;
@@ -605,6 +630,29 @@ background: linear-gradient(90deg, rgba(3,0,8,1) 0%, rgba(106,34,40,1) 10%, rgba
  .dark{
     background-color: #1E1E1E;
 }
+body.dark .nav-item{
+    color: var(--text-grey-color);
+}
+body.dark #back-end{
+    color: var(--text-normal)!important;
+}
+body.dark .intro h1{
+    color: var(--text-important);
+}
+body.dark .project h1{
+    color: var(--text-important);
+}
+
+body.dark .contact-info h1{
+    color: var(--text-important);
+}
+body.dark .contact-info p{
+    color: var(--text-grey-color);
+}
+
+body.dark .circle{
+    border: 3px solid var(--text-important)!important;
+}
 
 body.dark hr
 {
@@ -653,6 +701,9 @@ body.dark .form-group{
             max-width: 100%; /* Adjusted to 100% for smaller screens */
         }
 
+        .intro{
+          display: none;
+        }
         .intro h1 {
             font-size: 5em;
             margin-top: 1em;
@@ -750,24 +801,67 @@ body.dark .form-group{
        .btnForm{
         width: 100%!important;
        }
-       .footer{
-        height: 35vh;
+       footer{
+        margin-bottom: 150px!important;
+       }
+
+       footer div{
+        margin-bottom: 0px!important;
        }
 }
+
+    @media screen and (max-width: 360px) {
+
+        footer div{
+            margin-bottom: 0px!important;
+        }
+        footer{
+            margin-top: 0px!important;
+            margin-bottom: 0px!important;
+        }
+        #mobile{
+            display: block!important;
+        }
+
+        }
 
 
 
     @media screen and (max-width: 477px) {
-
+      .intro{
+        display: none;
+      }
         .intro h1 {
             font-size: 4em;
             margin-top: 1.5em;
             width: 100%;
             margin-right: 0;
         }
+
+        .form-group{
+            flex-direction: column;
+        }
+
+        footer{
+
+            margin-top: 120px;
+        }
+
+        footer div{
+
+            margin-bottom: 70px;
+        }
+        #mobile{
+            display: block!important;
+        }
+
     }
 
-    @media screen and (max-width: 380px) {
+    @media screen and (max-width: 390px) {
+
+      .intro{
+        display: none;
+      }
 
         .intro h1 {
             font-size: 3em;
@@ -814,10 +908,10 @@ body.dark .form-group{
             flex-direction: column!important;
         }
         .card {
-            width: 19rem;
+            max-width: 22rem;
         }
         #card{
-            width: 19rem;
+            max-width: 22rem;
         }
 
         .button{
@@ -853,23 +947,201 @@ body.dark .form-group{
             flex-direction: column!important;
             width: 100%!important;
         }
+        .form-row{
+            width: 100%!important;
+        }
+        .form-group textarea {
+            padding: 10px;
+            padding-right: 20px;
+        }
+        .form-group input {
+            padding: 10px;
+            padding-right: 20px;
+        }
 
         .btnForm{
             width: 100%!important;
         }
 
         footer{
-            height: 35vh;
+            margin-top: 120px;
+        }
+
+        footer div{
+            margin-bottom: 50px;
         }
 
         .icons-social img{
             width: 30px;
             height: 30px;
         }
+        #mobile{
+            display: block!important;
+        }
     }
 
-    @media screen and (width: 1920px) {
+    @media screen and (width: 375px) {
+
+        footer{
+            margin-top: 0px;
+        }
+
+        footer div{
+            margin-bottom: 0px;
+        }
+
+        #bg-mobile{
+            display: block!important;
+
+        }
+        #mobile{
+            display: block!important;
+        }
+    }
+
+    @media screen and (max-width: 425px) {
+
+        .intro{
+            display: none;
+        }
+
+        .personal-info {
+            margin-top: 5em;
+            flex-direction: column!important;
+        }
+
+        .right-side h2{
+            margin-top: 0!important;
+        }
+
+        .description{
+            font-size: 1em;
+            width: 100%!important;
+        }
+
+        .descrizione{
+            font-size: 1em;
+            width: 100%;
+        }
+
+        .wrap{
+            display: none;
+        }
+        #back-end{
+            margin-top: 3em!important;
+        }
+
+        .projects-info{
+            display: flex;
+            flex-direction: column!important;
+        }
+
+        .project {
+            text-align: center!important;
+            width: 100%!important;
+        }
+        .card {
+            margin-top: 5em;
+            margin-bottom: 20px;
+            max-width: 25rem;
+        }
+
+        .button{
+            display: none!important;
+        }
+
+        .wrapper .card{
+            margin-top: 13em!important;
+            max-height: 0px!important;
+            min-height: 150px!important;
+
+        }
+        .wrapper .card-body{
+           flex: 0 1 auto!important;
+        }
+
+        #card3{
+            margin-top: 75%!important;
+        }
+        .parallax{
+            display: none;
+        }
+
+        .contact-info{
+            margin-top:12em!important;
+            text-align: center;
+        }
+        .form-group{
+            flex-direction: column!important;
+            width: 100%!important;
+        }
+        .form-row{
+            width: 100%!important;
+        }
+        .form-group textarea {
+            padding: 10px;
+        }
+        .form-group input {
+            padding: 10px;
+            padding-right: 20px;
+        }
+        .btnForm{
+            width: 100%!important;
+        }
+        footer{
+            margin-bottom: 0px!important;
+            margin-top:100px!important;
+            height: 40vh!important;
+        }
+        footer div{
+            margin-bottom: 60px!important;
+        }
+        #bg-mobile{
+            display: block!important;
+
+        }
+        #mobile{
+            display: block!important;
+        }
+    }
+
+
+    @media screen and (max-width: 1920px) {
+
+
         #mobile{
             display: none;
+        }
+
+        #bg-mobile{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        .intro h1{
+            margin-top: 0.5em;
+            font-size: 15em;
+        }
+        .circle{
+            top: 150px;
+            right: 0;
+            left: 40%;
+            bottom: 0;
+            width: 150px;
+            height: 150px;
+            border: 3px solid var(--text-black);
+        }
+        .overlay{
+            top: 190px;
+            right: 0;
+            bottom: 0;
+            width: 70px;
+        }
+        .web-ux
+        {
+            top: 190px;
+            right: -8px;
+            bottom: 0;
         }
     }

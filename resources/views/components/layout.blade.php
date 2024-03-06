@@ -29,13 +29,35 @@
 
         $(document).ready(function() {
     var nav = $("#navbar");
+    var body = $("body");
     var scrollThreshold = 200;
 
     $(window).scroll(function () {
        if ($(this).scrollTop() > scrollThreshold) {
           nav.addClass("scrolled");
+          nav.find("a").each(function() {
+             $(this).css({
+        "color": "white",
+        "transition": "color 0.3s"  // Optional: Add a smooth transition
+    });
+});
        } else {
           nav.removeClass("scrolled");
+          if(body.hasClass("dark")) {
+            nav.find("a").each(function() {
+             $(this).css({
+        "color": "var(--text-grey-color)",
+        "transition": "color 0.3s"  // Optional: Add a smooth transition
+    });
+});
+          }else{
+            nav.find("a").each(function() {
+             $(this).css({
+        "color": "black",
+        "transition": "color 0.3s"  // Optional: Add a smooth transition
+    });
+});
+          }
        }
     });
  });
@@ -56,7 +78,9 @@
     nightMode.addEventListener("click", function() {
         // Cambia lo stato del tema
         var isDarkModeActive = nightMode.checked;
-
+        nav.querySelectorAll("a").forEach(function(element) {
+            element.style.color = isDarkModeActive ? "var(--text-grey-color)" : "black";
+        })
         // Aggiorna la classe 'dark' sul body in base allo stato del tema
         document.body.classList.toggle("dark", isDarkModeActive);
 
@@ -65,21 +89,22 @@
     });
 
     // Aggiungi la classe 'active' quando un elemento viene cliccato
-    nav.addEventListener("click", function(event) {
-        var clickedElement = event.target;
 
-        if (clickedElement.tagName === "A") {
-            // Rimuovi la classe active da tutti gli elementi
-            nav.querySelectorAll("a").forEach(function(element) {
-                element.classList.remove("active");
-                element.style.color = "#908e8e";
-            });
+nav.addEventListener("click", function(event) {
+    var clickedElement = event.target;
 
-            // Aggiungi la classe active all'elemento cliccato
-            clickedElement.classList.add("active");
-            clickedElement.style.color = "#EC2637";
-        }
-    });
+    if (clickedElement.tagName === "A") {
+        // Rimuovi la classe active da tutti gli elementi
+        nav.querySelectorAll("a").forEach(function(element) {
+            element.classList.remove("active");
+            element.style.color = document.body.classList.contains("dark") && nav.classList.contains("scrolled") ? "var(--text-grey-color)" : "black";
+        });
+
+        // Aggiungi la classe active all'elemento cliccato
+        clickedElement.classList.add("active");
+        clickedElement.style.color = "#EC2637";
+    }
+});
 });
             document.addEventListener("DOMContentLoaded", function() {
                 var backEndElement = document.getElementById('back-end');
